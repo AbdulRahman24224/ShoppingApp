@@ -1,0 +1,27 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "ShoppingApp"
+include ':core'
+include ':presentation'
+include ':base'
+include ':datasources'
+include ':storage'
+include ':network'
+include ':repositories'
+include ':repositories_impl'
+include ':usecases'
+include ':usecases_impl'
+include ':domain_models'
+include ':resources'
