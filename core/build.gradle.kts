@@ -1,9 +1,11 @@
+import org.jetbrains.kotlin.config.JvmAnalysisFlags.useIR
+
 plugins {
     id(Plugins.ANDROID_APPLICATION)
     id(Plugins.KOTLIN_ANDROID)
-    id(Plugins.NAVIGATION)
     id(Plugins.KAPT)
     id(Plugins.HILT)
+    id(Plugins.NAVIGATION)
 }
 
 android {
@@ -28,16 +30,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+
 
     buildFeatures {
         compose = true
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.2"
+        kotlinCompilerExtensionVersion = Version.COMPOSE
     }
 
     packagingOptions {
@@ -51,13 +51,12 @@ android {
 
 dependencies {
 
-    implementation(platform("androidx.compose:compose-bom:2022.10.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-
-    implementation("androidx.activity:activity-compose:1.3.1")
+    implementation(Lib.COMPOSE_UI)
+    implementation(Lib.COMPOSE_ACTIVITY)
+    implementation(Lib.COMPOSE_MATERIAL)
+    implementation(Lib.COMPOSE_ANIMATION)
+    implementation(Lib.COMPOSE_UI_TOOLING)
+    implementation(Lib.COMPOSE_LIFECYCLE_VIEWMODEL)
 
     implementation(Lib.KOTLIN_STDLIB)
     implementation(Lib.APPCOMPAT)
@@ -71,18 +70,13 @@ dependencies {
     implementation(Lib.ACTIVITY_KTX)
     implementation(Lib.FRAGMENT_KTX)
 
-
     // network
     implementation(Lib.RETROFIT)
     implementation(Lib.RETROFIT_CONVERTER_GSON)
     implementation(Lib.GSON)
     implementation(Lib.OKHTTP3_LOGGING_INTERCEPTOR)
 
-    implementation(Lib.SCANNER_DY)
-
     implementation(Lib.TIMBER)
-    implementation(Lib.THREETENABP)
-
 
     implementation(Lib.ROOM_RUNTIME)
     implementation(Lib.ROOM_KTX)
@@ -91,18 +85,17 @@ dependencies {
     implementation(Lib.HILT_ANDROID)
     implementation(Lib.HILT_WORK)
     kapt(Lib.HILT_WORK_KAPT)
-    implementation(Lib.JSON)
 
     kapt(Lib.HILT_ANDROID_COMPILER)
+
+    implementation(Lib.WORK)
 
     implementation(Lib.NAVIGATION_UI_KTX)
     implementation(Lib.NAVIGATION_FRAGMENT_KTX)
 
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2022.10.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     implementation(project(Modules.PRESENTATION))
     implementation(project(Modules.BASE))
@@ -113,10 +106,7 @@ dependencies {
     implementation(project(Modules.DATASOURCES))
     implementation(project(Modules.STORAGE))
     implementation(project(Modules.NETWORK))
-    implementation(project(Modules.BIOMETRIC))
 
-//    implementation(project(Modules.NAVIGATION))
-//    implementation(project(Modules.NAVIGATION_IMPL))
 
     implementation(project(Modules.USECASES))
     implementation(project(Modules.USECASES_IMPL))

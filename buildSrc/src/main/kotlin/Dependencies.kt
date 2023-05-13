@@ -6,9 +6,9 @@ object Version {
     const val COIL = "2.0.0"
     const val BUILD_TOOLS = "30.0.3"
 
-    const val KOTLIN = "1.6.10"
+    const val KOTLIN = "1.7.0"
 
-    const val KOTLIN_STDLIB = "1.6.10"
+    const val KOTLIN_STDLIB = "1.7.0"
 
     const val COROUTINES = "1.6.0"
     const val ANDROIDX = "1.3.0"
@@ -29,35 +29,12 @@ object Version {
     const val NAVIGATION = "2.5.0"
     const val ROOM = "2.4.0"
     const val WORK = "2.7.1"
-    const val CAMERA = "1.1.0-beta02"
-    const val CAMERA_SCAN = "1.1.0"
-    const val CAMERA_VIEW = "1.1.0-beta02"
-
-    const val COMPOSE = "1.3.0"
-    const val PagingCompose = "1.0.0-alpha15"
+    const val COMPOSE = "1.2.0"
     const val ACCOMPANIST = "0.24.4-alpha"
     const val FIREBASE = "31.2.3"
-    const val LOTTIE = "4.1.0"
 
-    const val SECURITY_CRYPTO = "1.0.0"
     const val KOTLINX_SERIALIZATION_JSON = "1.3.2"
 
-    const val BUBBLE_INDICATOR = "v1.4"
-    const val MPGS = "1.1.3"
-    const val ZXING = "4.3.0"
-    const val BarcodeScanner = "1.9.8"
-    const val LiveChat = "v2.2.1"
-    const val FreshChat = "5.4.2"
-    const val ExoPlayer = "2.18.1"
-
-    const val PROTOBUF_PLUGIN = "0.8.19"
-
-    const val ADJUST = "4.32.0"
-    const val INSTALL_REFERRER = "2.2"
-    const val MOENGAGE_CATALOG = "2.7.1"
-
-    const val App_Update = "2.0.1"
-    const val MONTHLY_DATE_PICKER = "1.1.0"
 }
 
 object Lib {
@@ -91,13 +68,6 @@ object Lib {
     const val NAVIGATION_FRAGMENT_KTX =
         "androidx.navigation:navigation-fragment-ktx:${Version.NAVIGATION}"
     const val NAVIGATION_UI_KTX = "androidx.navigation:navigation-ui-ktx:${Version.NAVIGATION}"
-    const val Facebook  = "com.facebook.android:facebook-android-sdk:13.0.0"
-
-
-    const val App_Update = "com.google.android.play:app-update:${Version.App_Update}"
-    const val App_Update_KTX = "com.google.android.play:app-update-ktx:${Version.App_Update}"
-
-    const val PAGING = "androidx.paging:paging-compose:${Version.PagingCompose}"
 
     const val ROOM_RUNTIME = "androidx.room:room-runtime:${Version.ROOM}"
     const val ROOM_KTX = "androidx.room:room-ktx:${Version.ROOM}"
@@ -107,8 +77,6 @@ object Lib {
     const val CRYPTO_TINK = "com.google.crypto.tink:tink-android:1.7.0"
 
     const val DATASTORE = "androidx.datastore:datastore:1.0.0"
-
-    const val WORK = "androidx.work:work-runtime-ktx:${Version.WORK}"
 
     const val PROTOBUF_JAVALITE = "com.google.protobuf:protobuf-javalite:3.21.2"
     const val VIEWBINDING_PROPERTY_DELEGATE =
@@ -121,16 +89,10 @@ object Lib {
     const val OKHTTP3_LOGGING_INTERCEPTOR =
         "com.squareup.okhttp3:logging-interceptor:${Version.OKHTTP}"
 
-    const val THREETENABP = "com.jakewharton.threetenabp:threetenabp:1.3.1"
-
-    const val CAMERA_CORE = "androidx.camera:camera-core:${Version.CAMERA}"
-    const val CAMERA_CAMERA2 = "androidx.camera:camera-camera2:${Version.CAMERA}"
-    const val CAMERA_LIFECYCLE = "androidx.camera:camera-lifecycle:${Version.CAMERA}"
-    const val CAMERA_VIEW = "androidx.camera:camera-view:${Version.CAMERA_VIEW}"
-    const val SCANNER_DY = "com.dyneti.android.dyscan:dyscan:1.4.0"
-
     // compose
     const val COMPOSE_ACTIVITY = "androidx.activity:activity-compose:${Version.ACTIVITY_KTX}"
+    // compose
+    const val COMPOSE_UI = "androidx.compose.ui:ui:${Version.COMPOSE}"
 
     // Compose Material Design
     const val COMPOSE_MATERIAL = "androidx.compose.material:material:${Version.COMPOSE}"
@@ -187,26 +149,7 @@ object Lib {
     const val PLAY_SERVICE_PHONE_AUTH = "com.google.android.gms:play-services-auth-api-phone:18.0.1"
     const val PLAY_SERVICE_ADS_IDENTIFIER =
         "com.google.android.gms:play-services-ads-identifier:17.0.1"
-
-
-    const val MAPS = "com.google.android.libraries.maps:maps:3.1.0-beta"
-    const val MAPS_KTX = "com.google.maps.android:maps-v3-ktx:2.2.0"
-
-    const val MPGS = "com.mastercard.gateway:gateway-android:${Version.MPGS}"
-    const val SECURITY = "androidx.security:security-crypto:${Version.SECURITY_CRYPTO}"
-    const val JSON =
-        "org.jetbrains.kotlinx:kotlinx-serialization-json:${Version.KOTLINX_SERIALIZATION_JSON}"
-
-    //Analytics
-    const val ADJUST = "com.adjust.sdk:adjust-android:${Version.ADJUST}"
-    const val MOENGAGE_ANDROID = "com.moengage:moe-android-sdk:${Version.MOENGAGE_CATALOG}"
-
-
-    const val INSTALL_REFERRER =
-        "com.android.installreferrer:installreferrer:${Version.INSTALL_REFERRER}"
-
-    // Add the following if you are using the Adjust SDK inside web views on your app
-    const val ADJUST_WEBBRIDGE = "com.adjust.sdk:adjust-android-webbridge:${Version.ADJUST}"
+    const val WORK = "androidx.work:work-runtime-ktx:${Version.WORK}"
 
     //Testing
     const val TRUTH = "com.google.truth:truth:1.0"
@@ -217,13 +160,5 @@ object Lib {
     const val COMPOSE_UI_TEST_JUNIT4 = "androidx.compose.ui:ui-test-junit4:${Version.COMPOSE}"
 
 
-    const val ZXING = "com.journeyapps:zxing-android-embedded:${Version.ZXING}"
-    const val BarcodeScanner = "me.dm7.barcodescanner:zxing:${Version.BarcodeScanner}"
-
-    const val LiveChat = "com.github.livechat:chat-window-android:${Version.LiveChat}"
-    const val FreshChat = "com.github.freshworks:freshchat-android:${Version.FreshChat}"
-
-    const val ExoPlayer = "com.google.android.exoplayer:exoplayer:${Version.ExoPlayer}"
-    const val MonthlyDatePicker = "com.github.DogusTeknoloji:compose-date-picker:${Version.MONTHLY_DATE_PICKER}"
 
 }

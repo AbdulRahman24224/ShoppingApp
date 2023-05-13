@@ -27,20 +27,37 @@ android {
         jvmTarget = "1.8"
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = Version.COMPOSE
+    }
+
 }
 
 dependencies {
 
-    implementation(platform("androidx.compose:compose-bom:2022.10.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
+    implementation(Lib.COMPOSE_UI)
+    implementation(Lib.COMPOSE_MATERIAL)
+    implementation(Lib.COMPOSE_ANIMATION)
+    implementation(Lib.COMPOSE_ACTIVITY)
+    implementation(Lib.COMPOSE_UI_TOOLING)
+    implementation(Lib.COMPOSE_LIFECYCLE_VIEWMODEL)
+    implementation(Lib.CONSTRAINTLAYOUT_COMPOSE)
     implementation(Lib.ACCOMPANIST_PLACEHOLDER)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(Lib.KOTLIN_STDLIB)
+    implementation(Lib.ANDROIDX_ANNOTATION)
+    implementation(Lib.CORE_KTX)
+    implementation(Lib.APPCOMPAT)
+    implementation(Lib.FRAGMENT_KTX)
+    implementation(Lib.KOTLINX_COROUTINES_ANDROID)
+    implementation(Lib.TIMBER)
+    implementation(Lib.VIEWBINDING_PROPERTY_DELEGATE_NO_REFLECTION)
+    implementation(Lib.NAVIGATION_FRAGMENT_KTX)
+
+    implementation(Lib.DATASTORE)
+    implementation(Lib.PROTOBUF_JAVALITE)
+
+
 
     implementation(project(Modules.RESOURCES))
     implementation(project(Modules.DOMAIN_MODELS))

@@ -1,6 +1,8 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(Plugins.ANDROID_LIBRARY)
+    id(Plugins.KOTLIN_ANDROID)
+    id(Plugins.HILT)
+    id(Plugins.KAPT)
 }
 
 android {
@@ -36,13 +38,15 @@ dependencies {
     implementation(Lib.TIMBER)
 
     implementation(Lib.HILT_ANDROID)
-
+    annotationProcessor(Lib.HILT_ANDROID_COMPILER)
+    
     implementation(Lib.KOTLINX_COROUTINES_ANDROID)
 
     implementation(Lib.RETROFIT)
     implementation(Lib.RETROFIT_CONVERTER_GSON)
     implementation(Lib.GSON)
     implementation(Lib.OKHTTP3_LOGGING_INTERCEPTOR)
+
 
     implementation(project(Modules.DATASOURCES))
     implementation(project(Modules.DOMAIN_MODELS))

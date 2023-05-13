@@ -1,6 +1,8 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(Plugins.ANDROID_LIBRARY)
+    id(Plugins.KOTLIN_ANDROID)
+    id(Plugins.KAPT)
+    id(Plugins.HILT)
 }
 
 android {
@@ -31,6 +33,7 @@ dependencies {
     implementation(Lib.KOTLIN_STDLIB)
     implementation(Lib.KOTLINX_COROUTINES_ANDROID)
     implementation(Lib.HILT_ANDROID)
+    annotationProcessor(Lib.HILT_ANDROID_COMPILER)
 
 
     implementation(project(Modules.DOMAIN_MODELS))

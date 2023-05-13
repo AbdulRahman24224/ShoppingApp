@@ -1,20 +1,16 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(Plugins.ANDROID_LIBRARY)
+    id(Plugins.KOTLIN_ANDROID)
+    id(Plugins.KOTLIN_PARCELIZE)
 }
 
 android {
     namespace = "com.example.domain_models"
-    compileSdk = 33
+    compileSdk = Version.TARGET_SDK
 
     defaultConfig {
-        applicationId = "com.example.domain_models"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        minSdk = Version.MIN_SDK
+        targetSdk = Version.TARGET_SDK
     }
 
     buildTypes {

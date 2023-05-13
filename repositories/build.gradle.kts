@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(Plugins.ANDROID_LIBRARY)
+    id(Plugins.KOTLIN_ANDROID)
 }
 
 android {
@@ -32,7 +32,6 @@ dependencies {
 
     implementation(Lib.KOTLIN_STDLIB)
     implementation(Lib.KOTLINX_COROUTINES_ANDROID)
-    implementation(Lib.PAGING)
 
     implementation(project(Modules.DOMAIN_MODELS))
 }

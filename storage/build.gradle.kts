@@ -1,6 +1,10 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(Plugins.ANDROID_LIBRARY)
+    id(Plugins.KOTLIN_ANDROID)
+    id(Plugins.KAPT)
+    id(Plugins.HILT)
 }
 
 android {
@@ -13,9 +17,7 @@ android {
         targetSdk = Version.TARGET_SDK
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
     }
-
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -30,10 +32,23 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.5.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(Lib.KOTLIN_STDLIB)
+
+    implementation(Lib.TIMBER)
+    implementation(Lib.HILT_ANDROID)
+    annotationProcessor(Lib.HILT_ANDROID_COMPILER)
+
+    implementation(Lib.ROOM_RUNTIME)
+    implementation(Lib.ROOM_KTX)
+    implementation(Lib.SQL_CIPHER)
+    implementation(Lib.SQLITE)
+    implementation(Lib.GSON)
+    annotationProcessor(Lib.ROOM_COMPILER)
+
+    implementation(Lib.DATASTORE)
+    implementation(Lib.PROTOBUF_JAVALITE)
+    implementation(Lib.CRYPTO_TINK)
+
+    implementation(project(Modules.DATASOURCES))
+    implementation(project(Modules.DOMAIN_MODELS))
 }
