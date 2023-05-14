@@ -14,7 +14,7 @@ object Version {
     const val ANDROIDX = "1.3.0"
     const val BIOMETRIC = "1.1.0"
     const val ANDROIDX_ANNOTATION = "1.2.0"
-    const val HILT = "2.41"
+    const val HILT = "2.42"
     const val LIFECYCLE = "2.4.1"
     const val OKHTTP = "4.9.0"
     const val RETROFIT2 = "2.9.0"
