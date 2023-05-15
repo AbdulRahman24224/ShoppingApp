@@ -87,6 +87,7 @@ dependencies {
     kapt(Lib.HILT_WORK_KAPT)
 
     kapt(Lib.HILT_ANDROID_COMPILER)
+    kapt(Lib.ROOM_COMPILER)
 
     implementation(Lib.WORK)
 
@@ -99,7 +100,6 @@ dependencies {
 
     implementation(project(Modules.PRESENTATION))
     implementation(project(Modules.BASE))
-    implementation(project(Modules.RESOURCES))
 
     implementation(project(Modules.DOMAIN_MODELS))
 
@@ -110,9 +110,6 @@ dependencies {
 
     implementation(project(Modules.USECASES))
     implementation(project(Modules.USECASES_IMPL))
-
-    implementation(project(Modules.RESOURCES))
-
     implementation(project(Modules.REPOSITORIES_IMPL))
     implementation(project(Modules.REPOSITORIES))
 }

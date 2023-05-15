@@ -77,7 +77,6 @@ dependencies {
     annotationProcessor(Lib.HILT_ANDROID_COMPILER)
 
     implementation(project(Modules.BASE))
-    implementation(project(Modules.RESOURCES))
     implementation(project(Modules.DOMAIN_MODELS))
     implementation(project(Modules.USECASES))
     

@@ -27,6 +27,9 @@ android {
         jvmTarget = "1.8"
     }
 
+    buildFeatures {
+        compose = true
+    }
     composeOptions {
         kotlinCompilerExtensionVersion = Version.COMPOSE
     }
@@ -57,8 +60,5 @@ dependencies {
     implementation(Lib.DATASTORE)
     implementation(Lib.PROTOBUF_JAVALITE)
 
-
-
-    implementation(project(Modules.RESOURCES))
     implementation(project(Modules.DOMAIN_MODELS))
 }

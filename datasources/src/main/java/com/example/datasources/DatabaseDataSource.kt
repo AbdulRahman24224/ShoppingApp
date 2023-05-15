@@ -1,19 +1,17 @@
-package com.example.repositories
+package com.example.datasources
 
-import com.example.domain_models.network.DataResult
 import com.example.domain_models.products.CartProduct
 import com.example.domain_models.products.Product
 import kotlinx.coroutines.flow.Flow
 
-interface ProductsRepository {
-
-    suspend fun getRemoteProducts(): DataResult<List<Product>>
+interface DatabaseDataSource {
 
     suspend fun insertProducts(products: List<Product>)
 
     suspend fun getAllProducts(): Flow<List<Product>>
 
     suspend fun getProductsByCategory(category: String): Flow<List<Product>>
+
 
     suspend fun queryProducts(query: String): Flow<List<Product>>
 
@@ -27,5 +25,6 @@ interface ProductsRepository {
 
     suspend fun removeProductFromCart(productId: Int):Int
 
-    suspend fun clearCart() : Int
+    suspend fun clearCart() :Int
+
 }

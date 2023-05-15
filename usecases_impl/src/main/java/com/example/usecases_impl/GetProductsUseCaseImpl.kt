@@ -13,6 +13,11 @@ class GetProductsUseCaseImpl @Inject constructor(
 
     override suspend fun invoke(): DataResult<List<Product>> {
 
+        val result = productsRepository.getRemoteProducts()
+
+        if ( result is DataResult.Success ) productsRepository.insertProducts(result.data)
+
+
         return productsRepository.getRemoteProducts()
     }
 

@@ -43,7 +43,7 @@ dependencies {
     implementation(Lib.SQL_CIPHER)
     implementation(Lib.SQLITE)
     implementation(Lib.GSON)
-    annotationProcessor(Lib.ROOM_COMPILER)
+    kapt(Lib.ROOM_COMPILER)
 
     implementation(Lib.DATASTORE)
     implementation(Lib.PROTOBUF_JAVALITE)
