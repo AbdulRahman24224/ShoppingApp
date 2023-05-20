@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface SearchProductsByKeywordUseCase {
 
-    suspend operator fun invoke(keyword :String): Flow<List<Product>>
+    suspend operator fun invoke(keyword :String , categories : List<String>): Flow<List<Product>>
 }

@@ -11,11 +11,11 @@ interface ProductsRepository {
 
     suspend fun insertProducts(products: List<Product>)
 
-    suspend fun getAllProducts(): Flow<List<Product>>
+    suspend fun getCachedProducts(): Flow<List<Product>>
 
-    suspend fun getProductsByCategory(category: String): Flow<List<Product>>
+    suspend fun getProductsByCategory(categories: List<String>): Flow<List<Product>>
 
-    suspend fun queryProducts(query: String): Flow<List<Product>>
+    suspend fun queryProducts(query: String ,categories: List<String>): Flow<List<Product>>
 
 
     suspend fun insertProductInCart(product: Product)

@@ -17,11 +17,14 @@ import kotlinx.coroutines.flow.Flow
     @Query("SELECT * from productEntity")
      fun getAllProducts(): Flow<List<ProductEntity>>
 
-    @Query("SELECT * from productEntity where category= :category")
-     fun getProductsByCategory(category: String): Flow<List<ProductEntity>>
+    @Query("SELECT * from productEntity where category In (:categories)")
+     fun getProductsByCategory(categories: List<String>): Flow<List<ProductEntity>>
 
 
-    @Query("SELECT * FROM productEntity WHERE title LIKE '%' || :query || '%' OR description LIKE '%' || :query || '%'")
-     fun queryProducts(query: String): Flow<List<ProductEntity>>
+    @Query("SELECT * FROM productEntity WHERE (title LIKE '%' || :query || '%' OR description LIKE '%' || :query || '%') AND category IN (:categories)")
+     fun queryProductsWithCategories(query: String , categories: List<String>): Flow<List<ProductEntity>>
+
+     @Query("SELECT * FROM productEntity WHERE (title LIKE '%' || :query || '%' OR description LIKE '%' || :query || '%') ")
+     fun queryProducts(query: String ): Flow<List<ProductEntity>>
 
 }

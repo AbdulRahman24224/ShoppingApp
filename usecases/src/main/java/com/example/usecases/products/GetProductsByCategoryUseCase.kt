@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface GetProductsByCategoryUseCase {
 
-    suspend operator fun invoke(category :String): Flow<List<Product>>
+    suspend operator fun invoke(categories :List<String>): Flow<List<Product>>
 }

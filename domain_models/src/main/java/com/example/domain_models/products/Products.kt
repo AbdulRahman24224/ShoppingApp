@@ -21,6 +21,13 @@ data class CartProduct(
     val quantity: Int
 )
 
+fun CartProduct.toProduct() :Product{
+
+    return Product(
+        id, title, price, description, category, image, rating
+    )
+}
+
 data class Rating(
     val rate: Double,
     val count: Int

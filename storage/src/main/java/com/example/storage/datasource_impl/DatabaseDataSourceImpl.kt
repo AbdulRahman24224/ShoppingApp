@@ -18,16 +18,24 @@ class DatabaseDataSourceImpl @Inject constructor(
 ) : DatabaseDataSource {
 
 
-    override suspend fun insertProducts(products: List<Product>) = productsDao.insertProducts(products.map { it.toEntity() })
+    override suspend fun insertProducts(products: List<Product>) =
+        productsDao.insertProducts(products.map { it.toEntity() })
 
-    override suspend fun getAllProducts(): Flow<List<Product>> = productsDao.getAllProducts().map { it.map { it.toDomain() }}
+    override suspend fun getAllProducts(): Flow<List<Product>> =
+        productsDao.getAllProducts().map { it.map { it.toDomain() } }
 
-    override suspend fun getProductsByCategory(category: String): Flow<List<Product>> {
-       return productsDao.getProductsByCategory(category).map { it.map { it.toDomain() } }
+    override suspend fun getProductsByCategory(categories: List<String>): Flow<List<Product>> {
+        return productsDao.getProductsByCategory(categories).map { it.map { it.toDomain() } }
     }
 
-    override suspend fun queryProducts(query: String): Flow<List<Product>> {
-       return productsDao.queryProducts(query).map { it.map { it.toDomain() } }
+    override suspend fun queryProducts(
+        query: String,
+        categories: List<String>
+    ): Flow<List<Product>> {
+        return if (categories.isEmpty())
+            productsDao.queryProducts(query).map { it.map { it.toDomain() } }
+        else
+            productsDao.queryProductsWithCategories(query, categories).map { it.map { it.toDomain() } }
     }
 
     override suspend fun insertProductInCart(product: Product) {
@@ -35,20 +43,22 @@ class DatabaseDataSourceImpl @Inject constructor(
     }
 
     override suspend fun getAllCartItems(): Flow<List<CartProduct>> {
-       return cartDao.getAllCartItems().map { it.map { it.toDomain() } }
+        return cartDao.getAllCartItems().map { it.map { it.toDomain() } }
     }
 
     override suspend fun updateProductQuantity(quantity: Int, productId: String) {
         return cartDao.updateProductQuantity(quantity, productId)
     }
 
-    override suspend fun removeProductFromCart(productId: Int):Int {
-       return cartDao.removeProductFromCart(productId)
+    override suspend fun removeProductFromCart(productId: Int): Int {
+        return cartDao.removeProductFromCart(productId)
+    }
+
+    override suspend fun returnIfExists(productId: Int): CartProduct? {
+        return cartDao.returnIfExists(productId)?.toDomain()
     }
 
     override suspend fun clearCart(): Int = cartDao.clearAll()
-
-
 
 
 }

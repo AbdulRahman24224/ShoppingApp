@@ -23,20 +23,24 @@ class ProductsRepositoryImpl @Inject constructor(
         databaseDataSource.insertProducts(products)
     }
 
-    override suspend fun getAllProducts(): Flow<List<Product>> {
+    override suspend fun getCachedProducts(): Flow<List<Product>> {
       return databaseDataSource.getAllProducts()
     }
 
-    override suspend fun getProductsByCategory(category: String): Flow<List<Product>> {
-        return databaseDataSource.getProductsByCategory(category)
+    override suspend fun getProductsByCategory(categories: List<String>): Flow<List<Product>> {
+        return databaseDataSource.getProductsByCategory(categories)
     }
 
-    override suspend fun queryProducts(query: String): Flow<List<Product>> {
-      return databaseDataSource.queryProducts(query)
+    override suspend fun queryProducts(query: String , categories: List<String>): Flow<List<Product>> {
+      return databaseDataSource.queryProducts(query ,categories)
     }
 
     override suspend fun insertProductInCart(product: Product) {
-        return databaseDataSource.insertProductInCart(product)
+        val productEntity = databaseDataSource.returnIfExists(product.id)
+        if (productEntity !=null)
+            databaseDataSource.updateProductQuantity(productEntity.quantity+1,productEntity.id.toString())
+        else
+            databaseDataSource.insertProductInCart(product)
     }
 
     override suspend fun getAllCartItems(): Flow<List<CartProduct>> {
@@ -50,6 +54,7 @@ class ProductsRepositoryImpl @Inject constructor(
     override suspend fun removeProductFromCart(productId: Int): Int {
        return databaseDataSource.removeProductFromCart(productId)
     }
+
 
     override suspend fun clearCart() :Int{
         return databaseDataSource.clearCart()

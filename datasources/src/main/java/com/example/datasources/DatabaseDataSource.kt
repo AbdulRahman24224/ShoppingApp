@@ -10,10 +10,10 @@ interface DatabaseDataSource {
 
     suspend fun getAllProducts(): Flow<List<Product>>
 
-    suspend fun getProductsByCategory(category: String): Flow<List<Product>>
+    suspend fun getProductsByCategory(categories: List<String>): Flow<List<Product>>
 
 
-    suspend fun queryProducts(query: String): Flow<List<Product>>
+    suspend fun queryProducts(query: String , categories: List<String>): Flow<List<Product>>
 
 
     suspend fun insertProductInCart(product: Product)
@@ -24,6 +24,8 @@ interface DatabaseDataSource {
     suspend fun updateProductQuantity(quantity: Int, productId: String)
 
     suspend fun removeProductFromCart(productId: Int):Int
+
+    suspend fun returnIfExists(productId: Int) :CartProduct?
 
     suspend fun clearCart() :Int
 
