@@ -32,6 +32,7 @@ import androidx.compose.material.TextButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -43,6 +44,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -340,7 +342,7 @@ class CartFragment : Fragment() {
 
 
             com.example.base.ui.compose.buttons.IconButton(
-                icon = Icons.Default.Clear,
+                icon = Icons.Default.Menu,
                 onButtonClick = { if (quantity > 0) onQuantityChange(quantity - 1) },
                 modifier = Modifier.size(35.dp)
             )

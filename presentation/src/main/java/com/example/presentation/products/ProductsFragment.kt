@@ -44,6 +44,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -62,6 +63,7 @@ import com.example.base.ui.compose.text.hintTextStyle
 import com.example.base.ui.compose.text.titleTextStyle
 import com.example.base.ui.theme.AppColors
 import com.example.domain_models.products.Product
+import com.example.shoppingapp.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 
@@ -106,7 +108,7 @@ class ProductsFragment : Fragment() {
                         modifier = Modifier
                             .align(Alignment.CenterHorizontally)
                             .padding(top = 16.dp),
-                        text = "Products List",
+                        text = stringResource(com.example.shoppingapp.R.string.products_list),
                         style = titleTextStyle()
                     )
 
@@ -114,7 +116,7 @@ class ProductsFragment : Fragment() {
 
                     SearchViewBar(
                         query = searchQueryState.value,
-                        hint = "enter text",
+                        hint = "what are you looking for?" ,
                         onClickSearch = {},
                         onValueChange = {
                             searchQueryState.value = it
@@ -135,6 +137,12 @@ class ProductsFragment : Fragment() {
                                 .size(30.dp)
                         )
                     }
+
+                   Text(
+                       modifier = Modifier.padding(start = 12.dp),
+                       text = "Products(${products.value.size}) " ,
+                       style = blackSubtitleTextStyle())
+
                     LazyRow(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
