@@ -29,7 +29,10 @@ android {
         jvmTarget = "1.8"
     }
 
-
+    buildFeatures {
+        viewBinding = true
+        compose = true
+    }
     composeOptions {
         kotlinCompilerExtensionVersion = Version.COMPOSE
     }
@@ -46,6 +49,8 @@ dependencies {
     implementation(Lib.LIFECYCLE_RUNTIME_KTX)
     implementation(Lib.COIL)
     implementation(Lib.WORK)
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
     debugImplementation(Lib.COMPOSE_UI_TOOLING)
 
     implementation(Lib.KOTLIN_STDLIB)
@@ -73,8 +78,13 @@ dependencies {
     implementation(Lib.OKHTTP3_LOGGING_INTERCEPTOR)
 
     //DI
+    //DI
     implementation(Lib.HILT_ANDROID)
-    annotationProcessor(Lib.HILT_ANDROID_COMPILER)
+    implementation(Lib.HILT_WORK)
+    kapt(Lib.HILT_WORK_KAPT)
+
+    kapt(Lib.HILT_ANDROID_COMPILER)
+    kapt(Lib.ROOM_COMPILER)
 
     implementation(project(Modules.BASE))
     implementation(project(Modules.DOMAIN_MODELS))
